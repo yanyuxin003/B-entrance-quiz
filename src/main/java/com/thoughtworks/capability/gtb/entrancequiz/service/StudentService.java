@@ -37,15 +37,14 @@ public class StudentService {
         int index=(int)(Math.random()*students.size());
         Student student =students.get(index);
         List<Student> studentToGroup = new ArrayList<>();
-        for (int i = 1; i <= groupSize ; i++) {
-            Group group = new Group((i+"组"),studentToGroup);
-        }
-        if(){
-            System.out.print(student+"\t");
-            students.remove(student);//
-            count++;
-            if(count%7==0)//控制换行
+        studentToGroup.add(student);
+        if(students.size()>0){
+            for (int i = 1; i <= groupSize ; i++) {
+                Group group = new Group((i+"组"),studentToGroup);
+                students.remove(student);
             }
+        }
+        return  ResponseEntity.ok(groups);
     }
 
     public ResponseEntity addStudent(Student student) {

@@ -25,7 +25,7 @@ public class StudentController {
     }
 
     @GetMapping("/groups")
-    public ResponseEntity<Set<Group>> getrGroupList(){
+    public ResponseEntity<List<Group>> getrGroupList(){
         return studentService.getGroups();
     }
 
